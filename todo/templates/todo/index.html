@@ -19,9 +19,21 @@
     <nav class="navbar">
 	    <p class="navbar-brand">To Do Application</p>
 
+
         {% if user.is_authenticated %}
+            <ul>
+                <li class="navbar-item">
+                    <a class="link" href="{% url 'home' %}">Tasks</a>
+                </li>
+            </ul>
+
             <p id="welcome-user">Welcome, {{ request.user.username }}</p>
 
+            <ul>
+                <li class="navbar-item">
+                    <a class="link" href="{% url 'hub' %}">Hub</a>
+                </li>
+            </ul>
             <ul>
                 <li class="navbar-item">
                     <a class="link" href="{% url 'logout' %}">Logout</a>
