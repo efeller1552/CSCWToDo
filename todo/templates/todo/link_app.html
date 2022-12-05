@@ -7,9 +7,9 @@
         <form action="{% url 'hub' %}" method="post" class="create-link-form">
             {% csrf_token %}
 
-            <input type="text" name="new-link" id="new-link" required>
-            <input type="text" name="new-url" id="new-url" required>
-            <button type="submit">Add Link</button>
+            <input type="text" name="new-link" id="new-link" placeholder = " Website Name" required>
+            <input type="text" name="new-url" id="new-url" placeholder = " Website Link " required>
+            <button type="submit">Add Tool</button>
         </form>
     </div>
 
