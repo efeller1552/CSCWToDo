@@ -19,4 +19,4 @@ class TodoForm(forms.ModelForm):
 class LinkForm(forms.ModelForm):
 
     class Meta:
-        fields = "__all__"
+        fields = ["name", "url"]

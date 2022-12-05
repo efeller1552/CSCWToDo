@@ -38,7 +38,8 @@ def hub(request):
     """
     if request.method == 'POST':
         link_name = request.POST.get("new-link")
-        link = LinkItem.objects.create(name=link_name, user=request.user)
+        link_url = request.POST.get("new-url")
+        link = LinkItem.objects.create(name=link_name, url=link_url, user=request.user)
         return redirect("hub")
 
     # todo items
@@ -130,6 +131,7 @@ def update_link(request, pk):
 
     # NOTE: request.POST.get("todo_{pk}") is the input name of the todo modal
     link.name = request.POST.get(f"link_{pk}")
+    link.url = request.POST.get(f"url_{pk}")
     link.save()
     # return redirect("home")
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
