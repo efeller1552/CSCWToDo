@@ -23,20 +23,20 @@
         {% if user.is_authenticated %}
             <ul>
                 <li class="navbar-item">
-                    <a class="link" href="{% url 'home' %}">Tasks</a>
+                    <a class="link" href="{% url 'home' %}" style="color: white;" >Tasks</a>
                 </li>
             </ul>
 
-            <p id="welcome-user">Welcome, {{ request.user.username }}</p>
+            <p id="welcome-user" style="color:black">Welcome, {{ request.user.username }}</p>
 
             <ul>
                 <li class="navbar-item">
-                    <a class="link" href="{% url 'hub' %}">Hub</a>
+                    <a class="link" href="{% url 'hub' %}" style="color: white;"> Collaboration Hub</a>
                 </li>
             </ul>
             <ul>
                 <li class="navbar-item">
-                    <a class="link" href="{% url 'logout' %}">Logout</a>
+                    <a class="link" href="{% url 'logout' %}" style="color: white;" >Logout</a>
                 </li>
             </ul>
         {% else %}

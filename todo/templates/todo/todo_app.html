@@ -7,7 +7,7 @@
         <form action="{% url 'home' %}" method="post" class="create-todo-form">
             {% csrf_token %}
 
-            <input type="text" name="new-todo" id="new-todo" required>
+            <input type="text" name="new-todo" id="new-todo" placeholder=" Task" required>
             <input type="date" name="new-duedate" id="new-duedate" required>
             <button type="submit">Add Todo</button>
         </form>
