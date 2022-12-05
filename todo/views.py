@@ -15,11 +15,12 @@ def home(request):
     """
     if request.method == 'POST':
         todo_name = request.POST.get("new-todo")
-        todo = TodoItem.objects.create(name=todo_name, user=request.user)
+        duedate = request.POST.get("new-duedate")
+        todo = TodoItem.objects.create(name=todo_name, duedate=duedate, user=request.user)
         return redirect("home")
 
     # todo items
-    todos = TodoItem.objects.filter(user=request.user, is_completed=False).order_by("-id")
+    todos = TodoItem.objects.filter(user=request.user, is_completed=False).order_by("duedate")
 
     # pagination 4 items per page
     paginator = Paginator(todos, 4)
@@ -90,6 +91,7 @@ def update_todo(request, pk):
 
     # NOTE: request.POST.get("todo_{pk}") is the input name of the todo modal
     todo.name = request.POST.get(f"todo_{pk}")
+    todo.duedate = request.POST.get(f"duedate_{pk}")
     todo.save()
     # return redirect("home")
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

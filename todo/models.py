@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.conf import settings
 
@@ -7,6 +8,7 @@ class TodoItem(models.Model):
     Todo Item Model
     """    
     name = models.CharField(max_length=100)
+    duedate = models.DateField(default=datetime.date.today)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     is_completed = models.BooleanField(default=False)

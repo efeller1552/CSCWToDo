@@ -8,6 +8,7 @@
             {% csrf_token %}
 
             <input type="text" name="new-todo" id="new-todo" required>
+            <input type="date" name="new-duedate" id="new-duedate" required>
             <button type="submit">Add Todo</button>
         </form>
     </div>
@@ -16,6 +17,7 @@
     <div class="todo-container">
         <div class="todos">
             <p>{{ i.name }}</p>
+            <p>{{ i.duedate }}</p>
             <ul class="app-buttons">
                 <li>
                     <button id="edit-todo" data-toggle="modal" data-target="#editTodoModal_{{ i.id }}">Edit</button>
@@ -34,6 +36,8 @@
                                     {% csrf_token %}
                                     <div class="modal-body">
                                         <input type="text" name="todo_{{ i.id }}" id="" value="{{ i.name }}" required
+                                            size="40">
+                                        <input type="date" name="duedate_{{ i.id }}" id="" value="{{ i.duedate }}" required
                                             size="40">
                                     </div>
                                     <div class="modal-footerr">
