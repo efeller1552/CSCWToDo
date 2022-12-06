@@ -17,17 +17,19 @@
 
 <body>
     <nav class="navbar">
-	    <p class="navbar-brand">To Do Application</p>
-
+	    <p class="navbar-brand", class style="color:black">Welcome, {{ request.user.username }}</p>
 
         {% if user.is_authenticated %}
+        <ul>
+            <li class="navbar-item">
+                <a class="link" href="{% url 'login' %}" style="color: white;">Join Another Group</a>
+            </li>
+        </ul>
             <ul>
                 <li class="navbar-item">
-                    <a class="link" href="{% url 'home' %}" style="color: white;" >Tasks</a>
+                    <a class="link" href="{% url 'home' %}" style="color: white;">Tasks</a>
                 </li>
             </ul>
-
-            <p id="welcome-user" style="color:black">Welcome, {{ request.user.username }}</p>
 
             <ul>
                 <li class="navbar-item">
